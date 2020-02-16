@@ -1,15 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-@Injectable({
-  providedIn: 'root'
-})
 export class HttpService {
 
-  constructor(private http: HttpClient) { }
-
+  // dla uproszczenia działania aplikacji UserService będzie przechowywać dane o zalogowanym użytkowniku
   isLogin: boolean = false;
   loginUserData: User;
+
+  constructor(private http: HttpClient) { }
 
   testLogin() {
     return this.http.get("api/api/login-test");
