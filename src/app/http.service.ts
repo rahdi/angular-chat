@@ -1,3 +1,8 @@
+import { User } from './user';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class HttpService {
 
   // dla uproszczenia działania aplikacji UserService będzie przechowywać dane o zalogowanym użytkowniku
