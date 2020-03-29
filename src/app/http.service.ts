@@ -41,7 +41,7 @@ export class HttpService {
     return this.http.post('api/api/messages/', mes);
   } */
 
-  set user(user: User) {
+  setUser(user: User) {
     this.loginUserData = user;
   }  
 }
