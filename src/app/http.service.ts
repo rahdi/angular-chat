@@ -35,9 +35,9 @@ export class HttpService {
     return this.http.get(`api/api/messages/${id}`);
   }
 
-  sendMessages(mes: Message) {
+  /* sendMessages(mes: Message) {
     return this.http.post('api/api/messages/', mes);
-  }
+  } */
 
   set user(user: User) {
     this.loginUserData = user;
