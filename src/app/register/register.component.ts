@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   ) {
     // Sprawdzenie, czy użytkownik nie jest zalogowany; jeżeli tak - przejście do głównego panelu
     if (httpService.isLogin) {
-        this.router.navigate(['/']);
+      this.router.navigate(['/']);
     }
   }
 
@@ -49,10 +49,10 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    
+
     // Stworzenie obiektu użytkownika z danych formularza i przesłanie ich do serwera
     this.httpService.register(new User(0, this.registerForm.controls.user_name.value, this.registerForm.controls.user_password.value))
-    // Subskrybcja do strumienia danych zwrotnych z zapytania http
+      // Subskrybcja do strumienia danych zwrotnych z zapytania http
       .subscribe(
         data => {
           if ("register" in data) {
@@ -73,7 +73,9 @@ export class RegisterComponent implements OnInit {
         },
         error => {
           this.loading = false;
-        });
+          console.log("Error!", error)
+        }
+      );
 
   }
 }
