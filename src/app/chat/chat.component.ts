@@ -14,8 +14,10 @@ export class ChatComponent implements OnInit {
     private httpService: HttpService
   ) {
     // Sprawdzenie, czy użytkownik nie jest zalogowany; jeżeli tak - przejście do głównego panelu
-    if (httpService.isLogin === false) {
-        this.router.navigate(['/login']);
+    if (httpService.isLogin === true) {
+      this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/login']);
     }
   }
 
