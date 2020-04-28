@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
         },
         error => {
           this.loading = false;
-          console.log("Error!", error)
+          console.log("Error with register!", error)
         }
       );
 
