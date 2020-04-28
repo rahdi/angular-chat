@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class HttpService {
 
-  // dla uproszczenia działania aplikacji UserService będzie przechowywać dane o zalogowanym użytkowniku
+  // dla uproszczenia działania aplikacji httpService będzie przechowywać dane o zalogowanym użytkowniku
   isLogin: boolean = false;
   loginUserData: User;
 
