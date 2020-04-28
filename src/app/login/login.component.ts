@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ) {
     // Sprawdzenie, czy użytkownik nie jest zalogowany; jeżeli tak - przejście do głównego panelu
     if (httpService.isLogin) {
-        this.router.navigate(['/']);
+      this.router.navigate(['/']);
     }
   }
 
@@ -50,16 +50,23 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    
+
     // Stworzenie obiektu użytkownika z danych formularza i przesłanie ich do serwera
     this.httpService.login(new User(0, this.loginForm.controls.user_name.value, this.loginForm.controls.user_password.value))
-    // Subskrybcja do strumienia danych zwrotnych z zapytania http
+      // Subskrybcja do strumienia danych zwrotnych z zapytania http
       .subscribe(
         data => {
-          if ("login" in data) {
-            if (data["login"] === true) {
-              // przejście do strony logowania
-              this.router.navigate(['/login']);
+          this.httpService.testLogin().subscribe(
+            (value) => { console.log('Received value: ', value) }, 
+            (error) => { console.log('Error!!', error) }, 
+            () => { console.log('End of values') }
+          )
+          if ("loggedin" in data) {
+            if (data["loggedin"] === true) {
+              // przejście do strony głównej czatu
+              this.httpService.isLogin = true;
+              this.router.navigate(['/']);
+              //this.httpService.setUser = new User( data["user_id"], data["user_name"], "");
             } else {
               this.loading = false;
               this.serverErrors.push(JSON.stringify(data));
