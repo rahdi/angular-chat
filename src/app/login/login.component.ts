@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
               // przejście do strony głównej czatu
               this.httpService.isLogin = true;
               this.router.navigate(['/']);
-              //this.httpService.setUser = new User( data["user_id"], data["user_name"], "");
+              this.httpService.setUser(data);
             } else {
               this.loading = false;
               this.serverErrors.push(JSON.stringify(data));
