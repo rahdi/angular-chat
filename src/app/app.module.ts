@@ -8,13 +8,15 @@ import { ChatComponent } from './chat/chat.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChatUserListComponent } from './chat-user-list/chat-user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ChatUserListComponent
   ],
   imports: [
     BrowserModule,
