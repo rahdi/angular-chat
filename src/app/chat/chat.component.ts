@@ -22,6 +22,9 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("loginUserData - user_id: " + this.httpService.loginUserData.user_id);
+    console.log("loginUserData - user_name: " + this.httpService.loginUserData.user_name);
+    console.log("loginUserData - user_password: " + this.httpService.loginUserData.user_password);
   }
 
   logout(): void {
