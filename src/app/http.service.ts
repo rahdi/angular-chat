@@ -1,6 +1,7 @@
 import { User } from './user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Message } from './message';
 
 @Injectable({
   providedIn: 'root'
@@ -37,9 +38,9 @@ export class HttpService {
     return this.http.get(`api/api/messages/${id}`);
   }
 
-  /* sendMessages(mes: Message) {
+  sendMessages(mes: Message) {
     return this.http.post('api/api/messages/', mes);
-  } */
+  }
 
   setUser(user: User) {
     this.loginUserData = user;
