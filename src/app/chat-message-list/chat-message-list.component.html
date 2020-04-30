@@ -1,1 +1,10 @@
-<p>chat-message-list works!</p>
+<div class="chat-messages-box">
+  <div class="chat-messages">
+      <!-- Zmiana stylu w ngStyle zależnie od użytkownika, któy przesłał wiadomość -->
+      <div *ngFor="let message of messages" [ngStyle]="{'text-align':myId === message.message_from_user_id ? 'right' : 'left' }">
+          <span>
+              {{message.message_text}}
+          </span>
+      </div>
+  </div>
+</div>
