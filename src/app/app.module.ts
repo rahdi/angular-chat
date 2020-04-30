@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChatUserListComponent } from './chat-user-list/chat-user-list.component';
+import { ChatNewMessageAreaComponent } from './chat-new-message-area/chat-new-message-area.component';
+import { ChatMessageListComponent } from './chat-message-list/chat-message-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ChatUserListComponent } from './chat-user-list/chat-user-list.component
     ChatComponent,
     RegisterComponent,
     LoginComponent,
-    ChatUserListComponent
+    ChatUserListComponent,
+    ChatNewMessageAreaComponent,
+    ChatMessageListComponent
   ],
   imports: [
     BrowserModule,
