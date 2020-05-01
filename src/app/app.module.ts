@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ChatUserListComponent } from './chat-user-list/chat-user-list.component';
 import { ChatNewMessageAreaComponent } from './chat-new-message-area/chat-new-message-area.component';
 import { ChatMessageListComponent } from './chat-message-list/chat-message-list.component';
@@ -26,7 +26,8 @@ import { ChatMessageListComponent } from './chat-message-list/chat-message-list.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
