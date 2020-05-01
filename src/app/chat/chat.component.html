@@ -1,2 +1,39 @@
-<p>chat works!</p>
 <button (click)="logout()">Wyloguj się</button>
+<p>Greetings!</p>
+
+<div class="row">
+
+  <div class="col-3">
+
+    <app-chat-user-list></app-chat-user-list>
+  </div>
+
+  <div class="col-6 ">
+    <ng-container *ngIf="selectedUser" class="">
+      <div class="row">
+        <div class="col-12">
+          <app-chat-message-list></app-chat-message-list>
+        </div>
+        <div class="col-12">
+          <app-chat-new-message-area></app-chat-new-message-area>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!selectedUser">
+      Please select user
+    </ng-container>
+
+  </div>
+
+
+  <div class="col-3">
+    <ng-container *ngIf="selectedUser">
+      <!-- TODO: wyswietlenie nazwy wybranego użytkownika -->
+      <br />
+      <!-- TODO: wyswietlenie id wybranego użytkownika -->
+    </ng-container>
+
+  </div>
+
+</div>
