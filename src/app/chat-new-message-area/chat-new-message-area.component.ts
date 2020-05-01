@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-chat-new-message-area',
   templateUrl: './chat-new-message-area.component.html',
-  styleUrls: ['./chat-new-message-area.component.scss']
+  styleUrls: ['./chat-new-message-area.component.sass']
 })
 export class ChatNewMessageAreaComponent implements OnInit {
 
