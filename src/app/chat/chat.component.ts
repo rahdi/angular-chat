@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { User } from '../user';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Message } from '../message';
 
 @Component({
   selector: 'app-chat',
@@ -42,6 +42,7 @@ export class ChatComponent implements OnInit {
         console.log("ChatComponent, onSubmit:", data);
       },
       error => {
+        console.log("error: ", error);
       });
   }
 
@@ -55,7 +56,6 @@ export class ChatComponent implements OnInit {
     this.httpService.getUsers().subscribe(
       data => {
         if ("data" in data) {
-          console.log("data");
           if (Array.isArray(data["data"])) {
             this.users = data["data"] as User[];
           }
@@ -73,7 +73,16 @@ export class ChatComponent implements OnInit {
     }
   
     getMessagesWithSelectedUser() {
-      // uzupełnij funkcję na podstawie funkcji realoadUsers
+      this.httpService.getMessages(this.selectedUser.user_id).subscribe(
+        data => {
+          if ("data" in data) {
+            if (Array.isArray(data["data"])) {
+              this.messagesToUser = data["data"] as Message[];
+            }
+          }
+        },
+        error => {
+        });
   
     }
 
