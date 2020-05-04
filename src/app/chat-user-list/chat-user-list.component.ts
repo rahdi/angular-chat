@@ -10,10 +10,8 @@ export class ChatUserListComponent implements OnInit {
 
   @Input() users: User[];
   @Output() userClicked: EventEmitter<User> = new EventEmitter();
-  
   constructor() { }
 
   ngOnInit() {
-
   }
 }
