@@ -4,8 +4,7 @@
 <div class="row">
 
   <div class="col-3">
-
-    <app-chat-user-list></app-chat-user-list>
+    <app-chat-user-list [users]="users" (userClicked)="userSelected($event)"></app-chat-user-list>
   </div>
 
   <div class="col-6 ">
@@ -15,7 +14,7 @@
           <app-chat-message-list></app-chat-message-list>
         </div>
         <div class="col-12">
-          <app-chat-new-message-area></app-chat-new-message-area>
+          <app-chat-new-message-area (sendButtonClicked)="sendMessage($event)"></app-chat-new-message-area>
         </div>
       </div>
     </ng-container>
@@ -29,9 +28,9 @@
 
   <div class="col-3">
     <ng-container *ngIf="selectedUser">
-      <!-- TODO: wyswietlenie nazwy wybranego użytkownika -->
+      {{selectedUser.user_name}}
       <br />
-      <!-- TODO: wyswietlenie id wybranego użytkownika -->
+      {{selectedUser.user_id}}
     </ng-container>
 
   </div>
