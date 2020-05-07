@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 import { User } from '../user';
+import { MessageWSService } from '../message-ws.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private ws: MessageWSService
   ) {
     // Sprawdzenie, czy użytkownik nie jest zalogowany; jeżeli tak - przejście do głównego panelu
     if (httpService.isLogin) {
@@ -64,6 +66,7 @@ export class LoginComponent implements OnInit {
           if ("loggedin" in data) {
             if (data["loggedin"] === true) {
               // przejście do strony głównej czatu
+              this.ws.open();
               this.httpService.isLogin = true;
               this.router.navigate(['/']);
               this.httpService.setUser(data);
