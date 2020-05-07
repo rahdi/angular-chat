@@ -1,7 +1,7 @@
 <button (click)="logout()">Wyloguj się</button>
 <p>Greetings!</p>
 
-<div class="row">
+<div class="row" style="height: 50%;">
 
   <div class="col-3">
     <app-chat-user-list [users]="users" (userClicked)="userSelected($event)"></app-chat-user-list>
@@ -26,11 +26,11 @@
   </div>
 
 
-  <div class="col-3">
+  <div class="col-3" style="text-align: center;">
     <ng-container *ngIf="selectedUser">
-      {{selectedUser.user_name}}
+      selected user's name: {{selectedUser.user_name}}
       <br />
-      {{selectedUser.user_id}}
+      selected user's id: {{selectedUser.user_id}}
     </ng-container>
 
   </div>
