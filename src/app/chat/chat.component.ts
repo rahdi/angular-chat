@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpService } from '../http.service';
 import { User } from '../user';
 import { Message } from '../message';
+import { MessageWSService } from '../message-ws.service';
 
 @Component({
   selector: 'app-chat',
@@ -19,7 +20,8 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private ws: MessageWSService
   ) {
     // Sprawdzenie, czy użytkownik nie jest zalogowany; jeżeli nie - przejście do panelu logowania
     if (!httpService.isLogin) {
