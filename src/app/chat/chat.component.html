@@ -11,7 +11,7 @@
     <ng-container *ngIf="selectedUser" class="">
       <div class="row">
         <div class="col-12">
-          <app-chat-message-list></app-chat-message-list>
+          <app-chat-message-list [messages]="messagesToUser" [myId]="getMyId()"></app-chat-message-list>
         </div>
         <div class="col-12">
           <app-chat-new-message-area (sendButtonClicked)="sendMessage($event)"></app-chat-new-message-area>
