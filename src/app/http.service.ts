@@ -39,7 +39,7 @@ export class HttpService {
   }
 
   sendMessages(mes: Message) {
-    return this.http.post('api/api/messages/', mes);
+    return this.http.post("api/api/messages/", mes);
   }
 
   setUser(user: User) {
