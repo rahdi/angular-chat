@@ -39,7 +39,7 @@ export class ChatComponent implements OnInit {
     return this.httpService.loginUserData.user_id;
   }
 
-  sendMessage(e) {
+  sendMessage(e: string) {
 
     this.httpService.sendMessages(new Message(0, 0, this.selectedUser.user_id, e, null)).subscribe(
       data => {
