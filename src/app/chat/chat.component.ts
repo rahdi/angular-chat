@@ -14,6 +14,8 @@ export class ChatComponent implements OnInit {
 
     // lista użytkowników
     users: User[] = [];
+
+    //lista wiadomości
     messagesToUser: Message[] = [];
   
     selectedUser: User = null;
@@ -70,7 +72,6 @@ export class ChatComponent implements OnInit {
     // funkcja wywoływana jak zostanie naciśniety użytkownik na liście użytkowników
     userSelected(user: User) {
       this.selectedUser = user;
-      console.log("Selected user", this.selectedUser)
       this.getMessagesWithSelectedUser();
     }
   
