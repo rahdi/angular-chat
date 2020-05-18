@@ -32,7 +32,25 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reloadUsers();
+    this.ws.onAnotherUserConneted.subscribe(
+      () => {
+        this.reloadUsers();
+      },
+      err => {
+        console.log("error ws.onAnotherUserConnected: ", err);
+      }
+    );
+
+    this.ws.onMessage.subscribe(
+      () => {
+        this.getMessagesWithSelectedUser();
+      },
+      err => {
+        console.log("error ws.onMessage", err);
+      }
+    );
+
+
   }
 
   getMyId() {
