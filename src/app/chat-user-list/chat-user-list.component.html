@@ -1,3 +1,6 @@
 <div *ngFor="let user of users" (click)="userClicked.emit(user)">
-  {{user.user_id}} {{user.user_name}} {{user.online}}
+  <span id="user-id">{{user.user_id}}</span>  {{user.user_name}}
+  <span *ngIf="user.online===true; then thenBlock else elseBlock"></span>
+  <ng-template #thenBlock><span id="online"></span></ng-template>
+  <ng-template #elseBlock><span id="offline"></span></ng-template>
 </div>

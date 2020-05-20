@@ -1,38 +1,42 @@
-<h2>Login</h2>
-<!-- Wyświetlanie błędów z serwera -->
-<div *ngIf="serverErrors && serverErrors.length > 0" >
-    <div *ngFor="let err of serverErrors" class="alert alert-danger" role="alert">
-        {{err}}
+<div class="container">
+    <h2>Login</h2>
+    <!-- Wyświetlanie błędów z serwera -->
+    <div *ngIf="serverErrors && serverErrors.length > 0">
+        <div *ngFor="let err of serverErrors" class="alert alert-danger" role="alert">
+            {{err}}
+        </div>
     </div>
-</div>
 
-<!-- tworzenie formularza, do pola formGroup należy przypisać formularz, co umożliwia przekazywanie danych z widoku do obiektu formularza z komponentu -->
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!-- tworzenie formularza, do pola formGroup należy przypisać formularz, co umożliwia przekazywanie danych z widoku do obiektu formularza z komponentu -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-        <label for="user_name">Username</label>
-        <!-- Angular umożlwia zmianę klasy obiektu html za pomocą pola ngClass -->
-        <input type="text" formControlName="user_name" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls.user_name.errors }" />
-        <!-- Sprawdzenie, czy nie wystąpiły błędy -->
-        <div *ngIf="submitted && formControls.user_name.errors" class="invalid-feedback">
-            <div *ngIf="formControls.user_name.errors.required">Username is required</div>
-            <div *ngIf="formControls.user_name.errors.minlength">Username must be at least 3 characters</div>
+            <label for="user_name">Username</label>
+            <!-- Angular umożlwia zmianę klasy obiektu html za pomocą pola ngClass -->
+            <input type="text" formControlName="user_name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && formControls.user_name.errors }" />
+            <!-- Sprawdzenie, czy nie wystąpiły błędy -->
+            <div *ngIf="submitted && formControls.user_name.errors" class="invalid-feedback">
+                <div *ngIf="formControls.user_name.errors.required">Username is required</div>
+                <div *ngIf="formControls.user_name.errors.minlength">Username must be at least 3 characters</div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="user_password">Password</label>
-        <input type="password" formControlName="user_password" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls.user_password.errors }" />
-        <div *ngIf="submitted && formControls.user_password.errors" class="invalid-feedback">
-            <div *ngIf="formControls.user_password.errors.required">Password is required</div>
-            <div *ngIf="formControls.user_password.errors.minlength">Password must be at least 3 characters</div>
+        <div class="form-group">
+            <label for="user_password">Password</label>
+            <input type="password" formControlName="user_password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && formControls.user_password.errors }" />
+            <div *ngIf="submitted && formControls.user_password.errors" class="invalid-feedback">
+                <div *ngIf="formControls.user_password.errors.required">Password is required</div>
+                <div *ngIf="formControls.user_password.errors.minlength">Password must be at least 3 characters</div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <!-- Angular wprowadza wiele dodatkowych pól, jak i kodyfikuje pola htmlowe tak, aby był do nich dostęp za pomocą databindingu -->
-        <button [disabled]="loading" class="btn btn-primary">Login</button>
-        <a routerLink="/login" class="btn btn-link">Cancel</a>
-    </div>
-    <!-- Dodanie przycisku umożliwiającego rejestrację -->
-    <button (click)="register()">
-     Nie masz konta? Zarejestruj!   
-    </button>
-</form>
+        <div class="form-group">
+            <!-- Angular wprowadza wiele dodatkowych pól, jak i kodyfikuje pola htmlowe tak, aby był do nich dostęp za pomocą databindingu -->
+            <button [disabled]="loading" class="btn btn-primary">Login</button>
+            <a routerLink="/login" class="btn btn-link">Cancel</a>
+        </div>
+        <!-- Dodanie przycisku umożliwiającego rejestrację -->
+        <button class="btn btn-secondary" (click)="register()">
+            Don't have an account? Register!
+        </button>
+    </form>
+</div>

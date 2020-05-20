@@ -1,38 +1,47 @@
-<button (click)="logout()">Wyloguj się</button>
-<p>Greetings!</p>
+<div class="container">
+  <button class="btn btn-secondary" id="logout" (click)="logout()">
+    Log out
+  </button>
+  <h2>Welcome!</h2>
+</div>
 
-<div class="row" style="height: 50%;">
 
-  <div class="col-3">
-    <app-chat-user-list [users]="users" (userClicked)="userSelected($event)"></app-chat-user-list>
-  </div>
+<div class="container" id="section">
+  <div class="row" style="height: 50%;">
 
-  <div class="col-6 ">
-    <ng-container *ngIf="selectedUser" class="">
-      <div class="row">
-        <div class="col-12">
-          <app-chat-message-list [messages]="messagesToUser" [myId]="getMyId()"></app-chat-message-list>
-        </div>
-        <div class="col-12">
-          <app-chat-new-message-area (sendButtonClicked)="sendMessage($event)"></app-chat-new-message-area>
-        </div>
+    <div class="col-3">
+      <div class="container">
+        <app-chat-user-list [users]="users" (userClicked)="userSelected($event)"></app-chat-user-list>
       </div>
-    </ng-container>
-
-    <ng-container *ngIf="!selectedUser">
-      Please select user
-    </ng-container>
-
+    </div>
+  
+    <div class="col-6" style="margin: auto">
+      <ng-container *ngIf="selectedUser" class="">
+        <div class="row">
+          <div class="col-12">
+            <app-chat-message-list [messages]="messagesToUser" [myId]="getMyId()"></app-chat-message-list>
+          </div>
+          <div class="col-12">
+            <app-chat-new-message-area (sendButtonClicked)="sendMessage($event)"></app-chat-new-message-area>
+          </div>
+        </div>
+      </ng-container>
+  
+      <ng-container *ngIf="!selectedUser">
+        <h4>⬅ Please select user</h4>
+      </ng-container>
+  
+    </div>
+  
+  
+    <div class="col-3" style="text-align: center;">
+      <ng-container *ngIf="selectedUser">
+        selected user's name: {{selectedUser.user_name}}
+        <br />
+        selected user's id: {{selectedUser.user_id}}
+      </ng-container>
+  
+    </div>
+  
   </div>
-
-
-  <div class="col-3" style="text-align: center;">
-    <ng-container *ngIf="selectedUser">
-      selected user's name: {{selectedUser.user_name}}
-      <br />
-      selected user's id: {{selectedUser.user_id}}
-    </ng-container>
-
-  </div>
-
 </div>
